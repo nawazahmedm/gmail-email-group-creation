@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "536af851-99c3-440f-b190-6bcf07a8e319",
+		"name": "Google Group API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36318223"
+	},
+	"item": [
+		{
+			"name": "Create or Update Group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "your-group-email@yourdomain.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Your Group Name",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Description of the group",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Members to Group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"member1-email@yourdomain.com\", \"member2-email@yourdomain.com\"]"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/groups/your-group-id/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"groups",
+						"your-group-id",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove All Members from Group",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/groups/your-group-id/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"groups",
+						"your-group-id",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Member from Group",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/groups/your-group-id/members/your-member-id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"groups",
+						"your-group-id",
+						"members",
+						"your-member-id"
+					],
+					"variable": [
+						{
+							"key": "groupId",
+							"value": "your-group-id"
+						},
+						{
+							"key": "memberId",
+							"value": "your-member-id"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
